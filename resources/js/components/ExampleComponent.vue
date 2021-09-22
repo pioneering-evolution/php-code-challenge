@@ -3,29 +3,26 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Example Component</div>
-                    <table v-for="(performer) in performers">
-                        <tr>
+                    <div class="card-header"></div>
+                    <table v-for="(performer) in performers" style="float:right">
                             <th> {{performer.display_name}} </th>
                             <th> Non Labor </th>
                             <th> Labor </th>
                             <th> Total </th>
-                        </tr>
 
                         <tr v-for='task in performerTask(performer.id)' >
-                            <td colspan="40%">{{ task.item_title }} - {{task.year}}</td>
-                            <td colspan="10%" v-if="task.type == 'non_labor'">{{task.amount}}</td>
-                            <td colspan="10%" v-else>0.00</td>
-                            <td colspan="10%" v-if="task.type == 'labor'">{{task.amount}}</td>
-                            <td colspan="10%" v-else>0.00</td>
+                            <td>{{ task.item_title }} - {{task.year}}</td>
+                            <td v-if="task.type == 'non_labor'">{{task.amount}}</td>
+                            <td v-else>0.00</td>
+                            <td v-if="task.type == 'labor'">{{task.amount}}</td>
+                            <td v-else>0.00</td>
 
-                            <td colspan="10%">total coming</td>
+                            <td>{{task.amount}}</td>
 
                         </tr>
                     </table>
 
                     <div class="card-body">
-                        I'm an example component.
 
                     </div>
                 </div>
@@ -83,7 +80,12 @@ export default {
             },
             performerTask(owner) {
                 return this.tasks.filter(task => task.owner === owner)
-            }
+            },
+/*            computed: {
+                list: function () {
+                    return this.tasks.list
+                }
+            }*/
         }
 }
 </script>

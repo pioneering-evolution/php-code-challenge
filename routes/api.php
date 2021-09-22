@@ -19,5 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/performers', [\App\Http\Controllers\Api\PerformerController::class, 'index']);
-Route::get('/tasks/{id}', [\App\Http\Controllers\Api\TaskController::class, 'performerTasks']);
+//Route::get('/tasks/{id}', [\App\Http\Controllers\Api\TaskController::class, 'performerTasks']);
 Route::get('/tasks/', [\App\Http\Controllers\Api\TaskController::class, 'index']);

@@ -2098,9 +2098,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2150,6 +2147,12 @@ __webpack_require__.r(__webpack_exports__);
         return task.owner === owner;
       });
     }
+    /*            computed: {
+                    list: function () {
+                        return this.tasks.list
+                    }
+                }*/
+
   }
 });
 
@@ -37714,53 +37717,40 @@ var render = function() {
           "div",
           { staticClass: "card" },
           [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
+            _c("div", { staticClass: "card-header" }),
             _vm._v(" "),
             _vm._l(_vm.performers, function(performer) {
               return _c(
                 "table",
+                { staticStyle: { float: "right" } },
                 [
-                  _c("tr", [
-                    _c("th", [
-                      _vm._v(" " + _vm._s(performer.display_name) + " ")
-                    ]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v(" Non Labor ")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v(" Labor ")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v(" Total ")])
+                  _c("th", [
+                    _vm._v(" " + _vm._s(performer.display_name) + " ")
                   ]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(" Non Labor ")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(" Labor ")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(" Total ")]),
                   _vm._v(" "),
                   _vm._l(_vm.performerTask(performer.id), function(task) {
                     return _c("tr", [
-                      _c("td", { attrs: { colspan: "40%" } }, [
+                      _c("td", [
                         _vm._v(
                           _vm._s(task.item_title) + " - " + _vm._s(task.year)
                         )
                       ]),
                       _vm._v(" "),
                       task.type == "non_labor"
-                        ? _c("td", { attrs: { colspan: "10%" } }, [
-                            _vm._v(_vm._s(task.amount))
-                          ])
-                        : _c("td", { attrs: { colspan: "10%" } }, [
-                            _vm._v("0.00")
-                          ]),
+                        ? _c("td", [_vm._v(_vm._s(task.amount))])
+                        : _c("td", [_vm._v("0.00")]),
                       _vm._v(" "),
                       task.type == "labor"
-                        ? _c("td", { attrs: { colspan: "10%" } }, [
-                            _vm._v(_vm._s(task.amount))
-                          ])
-                        : _c("td", { attrs: { colspan: "10%" } }, [
-                            _vm._v("0.00")
-                          ]),
+                        ? _c("td", [_vm._v(_vm._s(task.amount))])
+                        : _c("td", [_vm._v("0.00")]),
                       _vm._v(" "),
-                      _c("td", { attrs: { colspan: "10%" } }, [
-                        _vm._v("total coming")
-                      ])
+                      _c("td", [_vm._v(_vm._s(task.amount))])
                     ])
                   })
                 ],
@@ -37768,11 +37758,7 @@ var render = function() {
               )
             }),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n\n                "
-              )
-            ])
+            _c("div", { staticClass: "card-body" })
           ],
           2
         )
