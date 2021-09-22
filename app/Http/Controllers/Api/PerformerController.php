@@ -9,15 +9,15 @@ class PerformerController extends Controller
 {
     public function index()
     {
-        //get the path to the json file
+        //Get the path to the json file
         $jsonFile = "C:\wamp64\www\php-code-challenge-master\data.json";
-        //decode the json file
+        //Decode the json file
         $json = json_decode(file_get_contents($jsonFile), true);
 
         //Initialize an array that will be used to push each performer and their attributes
         $performerArray = null;
 
-        // Split into the two different labor groups **  Documentation had a typo with non-labor is actually non_labor **
+        //Split into the two different labor groups **  Documentation had a typo with non-labor is actually non_labor **
         $laborGroup = $json['cost_data']['data']['labor']['groups'];
         $nonLaborGroup = $json['cost_data']['data']['non_labor']['groups'];
 
